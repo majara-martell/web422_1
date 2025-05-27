@@ -34,16 +34,6 @@ app.get('/', (req, res) => {
   console.log(`Server is running on http://localhost:${HTTP_PORT}`);
 }); */
 
-app.post('/api/listings', (req, res) => {
-    db.addNewListing(req.body)
-    .then((data) => {
-        res.status(201).json(data);//res.json(data)
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).json({ error: err.message });
-    });
-});
-
 app.post("/api/listings", async (req, res) => {
   try {
     const listing = await db.addNewListing(req.body);
@@ -106,4 +96,3 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
 }).catch((err)=>{
     console.log(err);
 });
-
