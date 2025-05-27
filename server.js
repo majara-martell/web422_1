@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 app.post('/api/listings', (req, res) => {
     db.addNewListing(req.body)
     .then((data) => {
-        res.status(201).json(data); //res.json(data)
+        res.status(201).json(data);//res.json(data)
     }).catch((err) => {
         console.log(err);
         res.status(500).json({ error: err.message });
@@ -63,7 +63,6 @@ app.get("/api/listings", async (req, res) => {
   }
 });
 
-//for GET: /api/listings/:id
 app.get("/api/listings/:id", async (req, res) => {
   try {
     const listing = await db.getListingById(req.params.id);
@@ -74,7 +73,6 @@ app.get("/api/listings/:id", async (req, res) => {
   }
 });
 
-//for put: /api/listings/:id
 app.put("/api/listings/:id", async (req, res) => {
   try {
     const result = await db.updateListingById(req.body, req.params.id);
@@ -92,7 +90,7 @@ app.delete("/api/listings/:id", async (req, res) => {
   try {
     const result = await db.deleteListingById(req.params.id);
     if (result) {
-      res.status(204).end(); //nothing(succssful deletion)
+      res.status(204).end();//nothing(succssful deletion)
     } else {
       res.status(404).json({ error: "Listing not found" });
     }
