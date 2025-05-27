@@ -96,3 +96,5 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
 }).catch((err)=>{
     console.log(err);
 });
+
+module.exports = app;
