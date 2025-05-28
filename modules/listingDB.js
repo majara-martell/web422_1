@@ -16,7 +16,7 @@ module.exports = class ListingsDB {
         reject(err);
       });
       db.once('open', () => {
-        this.Listing = db.model("listing", listingSchema);
+        this.Listing = db.model("listing", listingSchema,"listingsAndReviews");
         resolve();
       });
     });

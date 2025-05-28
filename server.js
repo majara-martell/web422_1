@@ -91,6 +91,9 @@ app.delete("/api/listings/:id", async (req, res) => {
 
 db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
     app.listen(HTTP_PORT, ()=>{
+        console.log("Connected to collection:", db.Listing.collection.collectionName);
+
+
         console.log(`server listening on: ${HTTP_PORT}`);
     });
 }).catch((err)=>{
