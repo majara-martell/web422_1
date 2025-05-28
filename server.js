@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 /* app.listen(HTTP_PORT, () => {
-  console.log(`Server is running on http://localhost:${HTTP_PORT}`);
+    console.log(`Server is running on http://localhost:${HTTP_PORT}`);
 }); */
 
 app.post("/api/listings", async (req, res) => {
